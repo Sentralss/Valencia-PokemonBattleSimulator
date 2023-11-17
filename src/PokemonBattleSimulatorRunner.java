@@ -23,6 +23,15 @@ public class PokemonBattleSimulatorRunner
         String gameMode = scan.nextLine();
         System.out.print("Playing " + gameMode + "...\n" );
         System.out.println("\n◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
+        System.out.println("Pick your Pokemon/Team (Can't pick the same Pokemon twice)\n\nVenasaur   Charizard   Blastoise   Snorlax   Picahcu   Alakazam \n" +
+                "Grass      Fire        Water       Normal    Electric  Psychic\n" +
+                "\n" +
+                "Lucario   Golem   Garchomp   Pidgetto   Scizor   Nidoking\n" +
+                "Fighting  Rock    Ground     Flying     Bug      Poison\n" +
+                "\n" +
+                "Umbreon   Gengar   Walrein   Metagross   Dragonite   Gardevoir\n" +
+                "Dark      Ghost    Ice       Steel       Dragon      Fairy");
+        System.out.println("\n◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
 
 
