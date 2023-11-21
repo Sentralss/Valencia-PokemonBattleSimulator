@@ -15,7 +15,7 @@ public class PokemonBattleSimulator {
     private String Dragonite;
 
 
-    public PokemonBattleSimulator()
+    public PokemonBattleSimulator(String pokemon, String gameMode)
     {
 
 

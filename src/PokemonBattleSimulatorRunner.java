@@ -27,11 +27,6 @@ public class PokemonBattleSimulatorRunner
 
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
-        System.out.print(Reset +"Are you a new or returning player? (Type n for new or r for returning) ");
-        String returning = scan.nextLine();
-
-        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-
         System.out.print(Reset +"What game mode do you want to play? (1v1, 2v2, or 3v3): ");
         String gameMode = scan.nextLine();
         System.out.print("Playing " + gameMode + "...\n" );
