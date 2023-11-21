@@ -19,7 +19,7 @@ public class PokemonBattleSimulatorRunner
     {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
+        System.out.println(Red +"\n◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
         System.out.println(Reset +"Welcome to the Pokemon Battle Simulator!");
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
@@ -42,8 +42,14 @@ public class PokemonBattleSimulatorRunner
         System.out.println(CyanBright+"Walrein   "+ White +"Metagross   "+ BlueBright +"Dragonite   ");
         System.out.println(CyanBright+"Ice       "+ White +"Steel       "+ BlueBright +"Dragon    \n");
 
-        System.out.println(Reset + "Your pick/s (Pick1, Pick2, Pick3)");
-        String pokemon = scan.nextLine();
+        System.out.println(Reset + "Your pick/s (Pick1, Pick2, Pick3) (This will also determine the order they come out in):");
+        String pokemon = Reset + scan.nextLine();
+        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
+
+        PokemonBattleSimulator newGame = new PokemonBattleSimulator(pokemon, gameMode);
+
+        newGame.GameHud();
+
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
     }
 }
