@@ -32,14 +32,6 @@ public class PokemonBattleSimulator
         }
     }
 
-    public void Venasaur()
-    {
-        String name = "Venasaur";
-        String Move1 = Green + "Razor Leaf\n";
-        String Move2 = Reset + "Body Slam";
-        String Move3 = Magenta + "Sludge Bomb";
-        String Move4 = Green + "Vine Whip";
 
-    }
 
 }
