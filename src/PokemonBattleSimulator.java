@@ -24,17 +24,22 @@ public class PokemonBattleSimulator
         this.gameMode = gameMode;
     }
 
-    public void GameHud(){
-        System.out.println(Reset + "Starting Game...");
-        System.out.println("Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+    public void GameHud(String pokemon) {
+        if (pokemon.equals("venasaur")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
+        } else {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        }
     }
 
     public void Venasaur()
     {
+        String name = "Venasaur";
         String Move1 = Green + "Razor Leaf\n";
         String Move2 = Reset + "Body Slam";
-        String Move3 = "";
-        String Move4 = "";
+        String Move3 = Magenta + "Sludge Bomb";
+        String Move4 = Green + "Vine Whip";
+
     }
 
 }

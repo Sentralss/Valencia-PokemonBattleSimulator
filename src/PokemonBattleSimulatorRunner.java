@@ -48,7 +48,15 @@ public class PokemonBattleSimulatorRunner
 
         PokemonBattleSimulator newGame = new PokemonBattleSimulator(pokemon, gameMode);
 
-        newGame.GameHud();
+        System.out.println(Reset + "Starting Game...");
+        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
+        System.out.println(Reset + "Computers team: " );
+        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
+        newGame.GameHud(pokemon);
+
+
+        System.out.println(Reset + "Choose a move to use against the opponents pokemon:");
+        String move = scan.nextLine();
 
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
     }
