@@ -35,7 +35,7 @@ public class PokemonBattleSimulator
     public String comPick()
     {
         int pick = (int)(Math.random()* 13 + 1);
-        String pokemon = "";
+        pokemon = "";
         if(pick == 1){
             pokemon = Green + "Venasaur";
         }
@@ -77,7 +77,5 @@ public class PokemonBattleSimulator
         }
         return pokemon;
     }
-
-
 
 }

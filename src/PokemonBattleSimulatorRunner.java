@@ -51,7 +51,7 @@ public class PokemonBattleSimulatorRunner
         System.out.println(Reset + "Starting Game...");
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
         if(gameMode.equals("1v1")){
-            System.out.println(Reset + "Computers team: " + newGame.comPick());
+            System.out.println(Reset + "Computers team: " + Reset + newGame.comPick());
         }
         else if(gameMode.equals("2v2")){
             System.out.println(Reset + "Computers team: " + newGame.comPick() + ", " + Reset + newGame.comPick() );
