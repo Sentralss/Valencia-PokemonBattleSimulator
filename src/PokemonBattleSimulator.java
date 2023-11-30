@@ -25,11 +25,34 @@ public class PokemonBattleSimulator
     }
 
     public void GameHud(String pokemon) {
-        if (pokemon.equals("venasaur")) {
+        if (pokemon.equalsIgnoreCase("venasaur")) {
             System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else {
+        } else if(pokemon.equalsIgnoreCase("charizard")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("blastoise")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("snorlax")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("pikachu")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("lucario")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("scizor")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("nidoking")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("umbreon")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("genegar")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("walrein")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("metagross")) {
+            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+        } else if(pokemon.equalsIgnoreCase("dragonite")) {
             System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
         }
+
     }
 
     public String comPick()
@@ -70,12 +93,17 @@ public class PokemonBattleSimulator
             pokemon = CyanBright + "Walrein";
         }
         else if(pick == 12){
-            pokemon = BlueBright + "Dragonite";
+            pokemon = White +"Metagross";
         }
         else if(pick == 13){
-            pokemon = "Dragonite";
+            pokemon = BlueBright + "Dragonite";
         }
         return pokemon;
+    }
+
+    public void damage()
+    {
+
     }
 
 }

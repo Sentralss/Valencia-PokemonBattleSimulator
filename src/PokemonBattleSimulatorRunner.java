@@ -50,13 +50,16 @@ public class PokemonBattleSimulatorRunner
 
         System.out.println(Reset + "Starting Game...");
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-        if(gameMode.equals("1v1")){
+        if(gameMode.equalsIgnoreCase("1v1"))
+        {
             System.out.println(Reset + "Computers team: " + Reset + newGame.comPick());
         }
-        else if(gameMode.equals("2v2")){
+        else if(gameMode.equalsIgnoreCase("2v2"))
+        {
             System.out.println(Reset + "Computers team: " + newGame.comPick() + ", " + Reset + newGame.comPick() );
         }
-        else if(gameMode.equals("3v3")){
+        else if(gameMode.equalsIgnoreCase("3v3"))
+        {
             System.out.println(Reset + "Computers team: " + newGame.comPick() + ", " + Reset + newGame.comPick() + ", " + Reset + newGame.comPick());
         }
 
