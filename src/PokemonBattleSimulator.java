@@ -41,10 +41,8 @@ public class PokemonBattleSimulator
 
         double typeMultiplier = 1.0;
 
-        // Calculate damage using the basic formula (for simplicity)
         int damage = (int) (((2.0 * level / 5 + 2) * attack / opponentDefense) / 50 + 2) * (int) (typeMultiplier * 10);
 
-        // Apply the random factor
         damage = (int) (damage * damageMultiplier);
 
         return damage;
@@ -89,8 +87,17 @@ public class PokemonBattleSimulator
         Random random = new Random();
         int opponentHealth = 100;
         int damageToOpponent;
+        String comPoke = comPick();
 
-        System.out.println("Battle between your Pokemon and "+ comPick() + Reset + "!\n");
+        System.out.println(Reset + "Starting Game...");
+        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
+        System.out.println(Reset + "Computers team: " + Reset + comPoke);
+        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
+
+        System.out.println(Reset + "Choose a move to use against the opponents pokemon:");
+        String move = scan.nextLine();
+
+        System.out.println("\nBattle between your Pokemon and "+ comPoke + Reset + "!\n");
 
         while (health > 0 && opponentHealth > 0) {
             damageToOpponent = calculateDamage();
@@ -106,7 +113,7 @@ public class PokemonBattleSimulator
                 health -= damageToYou;
 
                 System.out.println(Reset + "\nChoose a move to use against the opponents pokemon:");
-                String move = scan.nextLine();
+                move = scan.nextLine();
                 System.out.println("Opponent deals " + damageToYou + " damage to your Pokemon.");
                 System.out.println("Your Pokemon's health: " + health);
 

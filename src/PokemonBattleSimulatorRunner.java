@@ -41,22 +41,10 @@ public class PokemonBattleSimulatorRunner
         String choice = Reset + scan.nextLine();
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
-        PokemonBattleSimulator newGame = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
-
-        String opponent = newGame.comPick();
-
-        System.out.println(Reset + "Starting Game...");
-        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-        System.out.println(Reset + "Computers team: " + Reset + opponent);
-        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-
-        System.out.println(Reset + "Choose a move to use against the opponents pokemon:");
-        String move = scan.nextLine();
-
         PokemonBattleSimulator opponents = new PokemonBattleSimulator("Venasaur", "Grass", 50, 500, 70, 80);
         PokemonBattleSimulator yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
 
-        int damageToOpponent = newGame.calculateDamage();
+        int damageToOpponent = yourPokemon.calculateDamage();
         if(choice.equalsIgnoreCase("charizard")){
             yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
         }else if (choice.equalsIgnoreCase("venasaur")) {
