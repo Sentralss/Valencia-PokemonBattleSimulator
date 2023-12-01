@@ -33,12 +33,16 @@ public class PokemonBattleSimulator
     }
 
 
-    public int calculateDamage(opponent) {
+    public int calculateDamage() {
         Random random = new Random();
         double damageMultiplier = random.nextDouble() * 0.5 + 0.75;
 
+        int opponentDefense = 50;
+
+        double typeMultiplier = 1.0;
+
         // Calculate damage using the basic formula (for simplicity)
-        int damage = (int) (((2.0 * level / 5 + 2) * attack / opponent.getDefense()) / 50 + 2) * opponent.typeMultiplier(this.type);
+        int damage = (int) (((2.0 * level / 5 + 2) * attack / opponentDefense) / 50 + 2) * (int) (typeMultiplier * 10);
 
         // Apply the random factor
         damage = (int) (damage * damageMultiplier);
@@ -58,64 +62,6 @@ public class PokemonBattleSimulator
             return 1.0; // Normal damage
         }
     }
-    public String GameHud(String poke) {
-        String moveSet = "Unknown Pokémon: " + poke;
-
-        if (poke.equalsIgnoreCase("venasaur")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("charizard")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Fire ball           |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("blastoise")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Water Gun           |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("snorlax")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Tackle              |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("pikachu")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Electric Shock      |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("lucario")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Low Sweep           |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("scizor")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("nidoking")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Prick               |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("umbreon")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Bite                |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("gengar")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Shadow Ball         |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("walrein")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Icicle              |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("metagross")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Steel Toss          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        } else if (poke.equalsIgnoreCase("dragonite")) {
-            moveSet = "Moves:\n -------------------- --------------------\n|Dragon Dance        |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
-        }
-
-        return Reset + moveSet;
-    }
-
-    public void battle(opponent) {
-        System.out.println("Battle between " + this.getName() + " and " + opponent.getName());
-
-        while (this.getHealth() > 0 && opponent.getHealth() > 0) {
-
-            int damageToOpponent = this.calculateDamage(opponent);
-            int damageToSelf = opponent.calculateDamage(this);
-
-            opponent.reduceHealth(damageToOpponent);
-            this.reduceHealth(damageToSelf);
-
-            System.out.println(this.pokemon() + " deals " + damageToOpponent + " damage to " + opponent.pokemon());
-            System.out.println(opponent.pokemon() + " deals " + damageToSelf + " damage to " + this.pokemon());
-
-            System.out.println(this.pokemon() + "'s health: " + this.getHealth());
-            System.out.println(opponent.pokemon() + "'s health: " + opponent.getHealth());
-        }
-
-        if (this.getHealth() <= 0) {
-            System.out.println(this.pokemon() + " fainted. " + opponent.pokemon() + " wins!");
-        } else {
-            System.out.println(opponent.pokemon() + " fainted. " + this.pokemon() + " wins!");
-        }
-    }
 
     // Method to reduce health
     private void reduceHealth(int damage) {
@@ -124,7 +70,36 @@ public class PokemonBattleSimulator
             this.health = 0;
         }
     }
+    public void battle() {
+        Random random = new Random();
+        int opponentHealth = 100; // Replace with actual opponent health
+        int damageToOpponent;
 
+        System.out.println("Battle between your Pokemon and a randomly picked opponent!");
+
+        while (health > 0 && opponentHealth > 0) {
+            damageToOpponent = calculateDamage();
+            opponentHealth -= damageToOpponent;
+
+            System.out.println("Your Pokemon deals " + damageToOpponent + " damage to the opponent.");
+            System.out.println("Opponent's health: " + opponentHealth);
+
+            if (opponentHealth <= 0) {
+                System.out.println("Opponent fainted. Your Pokemon wins!");
+            } else {
+                // Simulate opponent's attack (replace with actual logic)
+                int damageToYou = random.nextInt(10) + 1;
+                health -= damageToYou;
+
+                System.out.println("Opponent deals " + damageToYou + " damage to your Pokemon.");
+                System.out.println("Your Pokemon's health: " + health);
+
+                if (health <= 0) {
+                    System.out.println("Your Pokemon fainted. Opponent wins!");
+                }
+            }
+        }
+    }
 
     public String comPick()
     {

@@ -25,11 +25,6 @@ public class PokemonBattleSimulatorRunner
 
         System.out.println(Red+"             _\n _ __   ___ | | _____ _ __ ___   ___  _ __\n| '_ \\ / _ \\| |/ / _ \\ '_ ` _ \\ / _ \\| '_ \\\n" + Black +"| |_) | (_) |   <  __/ | | | | | (_) | | | |\n" + Reset +"| .__/ \\___/|_|\\_\\___|_| |_| |_|\\___/|_| |_|\n|_|\n");
 
-        System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-
-        System.out.print(Reset +"What game mode do you want to play? (1v1, 2v2, or 3v3): ");
-        String gameMode = scan.nextLine();
-        System.out.print("Playing " + gameMode + "...\n" );
 
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
         System.out.println(Reset + "Pick your Pokemon/Team (Can't pick the same Pokemon twice)");
@@ -52,16 +47,15 @@ public class PokemonBattleSimulatorRunner
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
         System.out.println(Reset + "Computers team: " + Reset + newGame.comPick());
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-        newGame.GameHud(choice);
-        System.out.println(newGame.GameHud(choice));
 
         System.out.println(Reset + "Choose a move to use against the opponents pokemon:");
         String move = scan.nextLine();
 
         PokemonBattleSimulator bulbasaur = new PokemonBattleSimulator("Bulbasaur", "Grass", 50, 100, 70, 80);
         // Calculate and print the damage
-        int damage = newGame.calculateDamage(bulbasaur);
-        System.out.println(newGame.pokemon() + " attacks " + bulbasaur.pokemon() + " and deals " + damage + " damage.");
+        int damageToOpponent = newGame.calculateDamage();
+        PokemonBattleSimulator yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 100, 80, 70);
+        yourPokemon.battle();
 
 
 
