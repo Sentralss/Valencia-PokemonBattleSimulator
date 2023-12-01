@@ -27,7 +27,7 @@ public class PokemonBattleSimulatorRunner
 
 
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-        System.out.println(Reset + "Pick your Pokemon/Team (Can't pick the same Pokemon twice)");
+        System.out.println(Reset + "Pick your Pokemon:");
         System.out.println(Green +"Venasaur   "+ Red +"Charizard   "+ Blue +"Blastoise   "+ Reset +"Snorlax   "+ Yellow +"Pikachu");
         System.out.println(Green +"Grass      "+ Red +"Fire        "+ Blue +"Water       "+ Reset +"Normal    "+ Yellow +"Electric\n");
 
@@ -37,25 +37,68 @@ public class PokemonBattleSimulatorRunner
         System.out.println(CyanBright+"Walrein   "+ White +"Metagross   "+ BlueBright +"Dragonite   ");
         System.out.println(CyanBright+"Ice       "+ White +"Steel       "+ BlueBright +"Dragon    \n");
 
-        System.out.println(Reset + "Your pick/s (Pick1, Pick2, Pick3) (This will also determine the order they come out in):");
+        System.out.println(Reset + "Your pick:");
         String choice = Reset + scan.nextLine();
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
-        PokemonBattleSimulator newGame = new PokemonBattleSimulator("Charizard", "Fire", 50, 100, 80, 70);
+        PokemonBattleSimulator newGame = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
+
+        String opponent = newGame.comPick();
 
         System.out.println(Reset + "Starting Game...");
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-        System.out.println(Reset + "Computers team: " + Reset + newGame.comPick());
+        System.out.println(Reset + "Computers team: " + Reset + opponent);
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
         System.out.println(Reset + "Choose a move to use against the opponents pokemon:");
         String move = scan.nextLine();
 
-        PokemonBattleSimulator bulbasaur = new PokemonBattleSimulator("Bulbasaur", "Grass", 50, 100, 70, 80);
-        // Calculate and print the damage
+        PokemonBattleSimulator opponents = new PokemonBattleSimulator("Venasaur", "Grass", 50, 500, 70, 80);
+        PokemonBattleSimulator yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
+
         int damageToOpponent = newGame.calculateDamage();
-        PokemonBattleSimulator yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 100, 80, 70);
+        if(choice.equalsIgnoreCase("charizard")){
+            yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
+        }else if (choice.equalsIgnoreCase("venasaur")) {
+            yourPokemon = new PokemonBattleSimulator("Venasaur", "Grass", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("blastoise")) {
+            yourPokemon = new PokemonBattleSimulator("Blastoise", "Water", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("pikachu")) {
+            yourPokemon = new PokemonBattleSimulator("Pikachu", "Electric", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("snorlax")) {
+            yourPokemon = new PokemonBattleSimulator("Snorlax", "Normal", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("lucario")) {
+            yourPokemon = new PokemonBattleSimulator("Lucario", "Fighting", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("scizor")) {
+            yourPokemon = new PokemonBattleSimulator("Scizor", "Bug", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("nidoking")) {
+            yourPokemon = new PokemonBattleSimulator("Nidoking", "Poison", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("umbreon")) {
+            yourPokemon = new PokemonBattleSimulator("Umbreon", "Dark", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("gengar")) {
+            yourPokemon = new PokemonBattleSimulator("Gengar", "Ghost", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("Walrein")) {
+            yourPokemon = new PokemonBattleSimulator("Walrein", "Ice", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("Metagross")) {
+            yourPokemon = new PokemonBattleSimulator("Metagross", "Steel", 50, 500, 80, 70);
+            yourPokemon.battle();
+        } else if (choice.equalsIgnoreCase("Dragonite")) {
+            yourPokemon = new PokemonBattleSimulator("Dragonite", "Dragon", 50, 500, 80, 70);
+            yourPokemon.battle();
+        }
         yourPokemon.battle();
+
+
 
 
 

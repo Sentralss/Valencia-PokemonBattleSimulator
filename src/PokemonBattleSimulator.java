@@ -1,5 +1,5 @@
 import java.util.Random;
-
+import java.util.Scanner;
 public class PokemonBattleSimulator
 {
     static String Black = "\u001b[30m";
@@ -21,8 +21,7 @@ public class PokemonBattleSimulator
     private int health;
     private int attack;
     private int defense;
-
-
+    Scanner scan = new Scanner(System.in);
     public PokemonBattleSimulator(String pokemon, String type, int level, int health, int attack, int defense) {
         this.pokemon = pokemon;
         this.type = type;
@@ -33,7 +32,8 @@ public class PokemonBattleSimulator
     }
 
 
-    public int calculateDamage() {
+    public int calculateDamage()
+    {
         Random random = new Random();
         double damageMultiplier = random.nextDouble() * 0.5 + 0.75;
 
@@ -51,24 +51,46 @@ public class PokemonBattleSimulator
     }
 
 
-    private double typeMultiplier(String opponentType) {
-        if (this.type.equals("Fire") && (opponentType.equals("Grass") || opponentType.equals("Bug"))) {
+    private double typeMultiplier(String opponentType)
+    {
+        if (this.type.equals("Fire") && (opponentType.equals("Grass") || opponentType.equals("Bug") || (opponentType.equals("Ice") || opponentType.equals("Steel")))) {
             return 2.0; // Double damage
         } else if (this.type.equals("Water") && (opponentType.equals("Fire") || opponentType.equals("Rock"))) {
             return 2.0; // Double damage
         } else if (this.type.equals("Grass") && (opponentType.equals("Water") || opponentType.equals("Electric"))) {
             return 2.0; // Double damage
-        } else {
+        } else if (this.type.equals("Normal")) {
             return 1.0; // Normal damage
+        } else if (this.type.equals("Electric") && (opponentType.equals("Water"))) {
+            return 2.0; // Double damage
+        } else if (this.type.equals("Fighting") && (opponentType.equals("Dark") || opponentType.equals("Steel")||(opponentType.equals("Normal") || opponentType.equals("Ice")))) {
+            return 2.0; // Double damage
+        } else if (this.type.equals("Bug") && (opponentType.equals("Grass") || opponentType.equals("Dark"))) {
+            return 2.0; // Double damage
+        } else if (this.type.equals("Poison") && (opponentType.equals("Grass"))) {
+            return 2.0; // Double damage
+        } else if (this.type.equals("Dark") && (opponentType.equals("Ghost"))) {
+            return 2.0; // Double damage
+        } else if (this.type.equals("Ghost")) {
+            return 1.0;
+        } else if (this.type.equals("Ice") && (opponentType.equals("Dragon") || opponentType.equals("Grass"))) {
+            return 2.0;
+        } else if (this.type.equals("Steel") && (opponentType.equals("Ice"))) {
+            return 2.0;
+        } else if (this.type.equals("Dragon") && (opponentType.equals("Dragon"))) {
+            return 2.0;
+        } else {
+            return 1.0;
         }
     }
 
-    public void battle() {
+    public void battle()
+    {
         Random random = new Random();
         int opponentHealth = 100;
         int damageToOpponent;
 
-        System.out.println("Battle between your Pokemon and a randomly picked opponent!");
+        System.out.println("Battle between your Pokemon and "+ comPick() + Reset + "!\n");
 
         while (health > 0 && opponentHealth > 0) {
             damageToOpponent = calculateDamage();
@@ -80,10 +102,11 @@ public class PokemonBattleSimulator
             if (opponentHealth <= 0) {
                 System.out.println("Opponent fainted. Your Pokemon wins!");
             } else {
-                // Simulate opponent's attack (replace with actual logic)
                 int damageToYou = random.nextInt(10) + 1;
                 health -= damageToYou;
 
+                System.out.println(Reset + "\nChoose a move to use against the opponents pokemon:");
+                String move = scan.nextLine();
                 System.out.println("Opponent deals " + damageToYou + " damage to your Pokemon.");
                 System.out.println("Your Pokemon's health: " + health);
 
