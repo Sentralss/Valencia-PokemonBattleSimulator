@@ -63,16 +63,9 @@ public class PokemonBattleSimulator
         }
     }
 
-    // Method to reduce health
-    private void reduceHealth(int damage) {
-        this.health -= damage;
-        if (this.health < 0) {
-            this.health = 0;
-        }
-    }
     public void battle() {
         Random random = new Random();
-        int opponentHealth = 100; // Replace with actual opponent health
+        int opponentHealth = 100;
         int damageToOpponent;
 
         System.out.println("Battle between your Pokemon and a randomly picked opponent!");
