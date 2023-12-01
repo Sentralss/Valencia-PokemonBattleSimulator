@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class PokemonBattleSimulator
 {
@@ -15,45 +16,115 @@ public class PokemonBattleSimulator
     static String Yellow = "\033[0;93m";
     static String Reset = "\u001b[0m";
     private String pokemon;
-    private String gameMode;
+    private String type;
+    private int level;
+    private int health;
+    private int attack;
+    private int defense;
 
 
-    public PokemonBattleSimulator(String pokemon, String gameMode)
-    {
+    public PokemonBattleSimulator(String pokemon, String type, int level, int health, int attack, int defense) {
         this.pokemon = pokemon;
-        this.gameMode = gameMode;
+        this.type = type;
+        this.level = level;
+        this.health = health;
+        this.attack = attack;
+        this.defense = defense;
     }
 
-    public void GameHud(String pokemon) {
-        if (pokemon.equalsIgnoreCase("venasaur")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("charizard")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("blastoise")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("snorlax")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("pikachu")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("lucario")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("scizor")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("nidoking")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("umbreon")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("genegar")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("walrein")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("metagross")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------");
-        } else if(pokemon.equalsIgnoreCase("dragonite")) {
-            System.out.println(Reset + "Moves:\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------\n|                    |                    |\n|                    |                    |\n -------------------- --------------------");
+
+    public int calculateDamage(opponent) {
+        Random random = new Random();
+        double damageMultiplier = random.nextDouble() * 0.5 + 0.75;
+
+        // Calculate damage using the basic formula (for simplicity)
+        int damage = (int) (((2.0 * level / 5 + 2) * attack / opponent.getDefense()) / 50 + 2) * opponent.typeMultiplier(this.type);
+
+        // Apply the random factor
+        damage = (int) (damage * damageMultiplier);
+
+        return damage;
+    }
+
+
+    private double typeMultiplier(String opponentType) {
+        if (this.type.equals("Fire") && (opponentType.equals("Grass") || opponentType.equals("Bug"))) {
+            return 2.0; // Double damage
+        } else if (this.type.equals("Water") && (opponentType.equals("Fire") || opponentType.equals("Rock"))) {
+            return 2.0; // Double damage
+        } else if (this.type.equals("Grass") && (opponentType.equals("Water") || opponentType.equals("Electric"))) {
+            return 2.0; // Double damage
+        } else {
+            return 1.0; // Normal damage
+        }
+    }
+    public String GameHud(String poke) {
+        String moveSet = "Unknown Pokémon: " + poke;
+
+        if (poke.equalsIgnoreCase("venasaur")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("charizard")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Fire ball           |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("blastoise")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Water Gun           |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("snorlax")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Tackle              |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("pikachu")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Electric Shock      |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("lucario")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Low Sweep           |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("scizor")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Razor Leaf          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("nidoking")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Prick               |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("umbreon")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Bite                |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("gengar")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Shadow Ball         |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("walrein")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Icicle              |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("metagross")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Steel Toss          |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
+        } else if (poke.equalsIgnoreCase("dragonite")) {
+            moveSet = "Moves:\n -------------------- --------------------\n|Dragon Dance        |Body Slam           |\n|Damage:55           |Damage:85          |\n -------------------- --------------------\n|Sludge Bomb         |Vine Whip           |\n|Damage:90           |Damage:45          |\n -------------------- --------------------";
         }
 
+        return Reset + moveSet;
     }
+
+    public void battle(opponent) {
+        System.out.println("Battle between " + this.getName() + " and " + opponent.getName());
+
+        while (this.getHealth() > 0 && opponent.getHealth() > 0) {
+
+            int damageToOpponent = this.calculateDamage(opponent);
+            int damageToSelf = opponent.calculateDamage(this);
+
+            opponent.reduceHealth(damageToOpponent);
+            this.reduceHealth(damageToSelf);
+
+            System.out.println(this.pokemon() + " deals " + damageToOpponent + " damage to " + opponent.pokemon());
+            System.out.println(opponent.pokemon() + " deals " + damageToSelf + " damage to " + this.pokemon());
+
+            System.out.println(this.pokemon() + "'s health: " + this.getHealth());
+            System.out.println(opponent.pokemon() + "'s health: " + opponent.getHealth());
+        }
+
+        if (this.getHealth() <= 0) {
+            System.out.println(this.pokemon() + " fainted. " + opponent.pokemon() + " wins!");
+        } else {
+            System.out.println(opponent.pokemon() + " fainted. " + this.pokemon() + " wins!");
+        }
+    }
+
+    // Method to reduce health
+    private void reduceHealth(int damage) {
+        this.health -= damage;
+        if (this.health < 0) {
+            this.health = 0;
+        }
+    }
+
 
     public String comPick()
     {
@@ -101,9 +172,29 @@ public class PokemonBattleSimulator
         return pokemon;
     }
 
-    public void damage()
-    {
-
+    public String pokemon() {
+        return pokemon;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
 
 }

@@ -43,32 +43,27 @@ public class PokemonBattleSimulatorRunner
         System.out.println(CyanBright+"Ice       "+ White +"Steel       "+ BlueBright +"Dragon    \n");
 
         System.out.println(Reset + "Your pick/s (Pick1, Pick2, Pick3) (This will also determine the order they come out in):");
-        String pokemon = Reset + scan.nextLine();
+        String choice = Reset + scan.nextLine();
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
-        PokemonBattleSimulator newGame = new PokemonBattleSimulator(pokemon, gameMode);
+        PokemonBattleSimulator newGame = new PokemonBattleSimulator("Charizard", "Fire", 50, 100, 80, 70);
 
         System.out.println(Reset + "Starting Game...");
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-        if(gameMode.equalsIgnoreCase("1v1"))
-        {
-            System.out.println(Reset + "Computers team: " + Reset + newGame.comPick());
-        }
-        else if(gameMode.equalsIgnoreCase("2v2"))
-        {
-            System.out.println(Reset + "Computers team: " + newGame.comPick() + ", " + Reset + newGame.comPick() );
-        }
-        else if(gameMode.equalsIgnoreCase("3v3"))
-        {
-            System.out.println(Reset + "Computers team: " + newGame.comPick() + ", " + Reset + newGame.comPick() + ", " + Reset + newGame.comPick());
-        }
-
+        System.out.println(Reset + "Computers team: " + Reset + newGame.comPick());
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
-        newGame.GameHud(pokemon);
-
+        newGame.GameHud(choice);
+        System.out.println(newGame.GameHud(choice));
 
         System.out.println(Reset + "Choose a move to use against the opponents pokemon:");
         String move = scan.nextLine();
+
+        PokemonBattleSimulator bulbasaur = new PokemonBattleSimulator("Bulbasaur", "Grass", 50, 100, 70, 80);
+        // Calculate and print the damage
+        int damage = newGame.calculateDamage(bulbasaur);
+        System.out.println(newGame.pokemon() + " attacks " + bulbasaur.pokemon() + " and deals " + damage + " damage.");
+
+
 
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
     }
