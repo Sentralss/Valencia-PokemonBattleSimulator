@@ -41,10 +41,9 @@ public class PokemonBattleSimulatorRunner
         String choice = Reset + scan.nextLine();
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
 
-        PokemonBattleSimulator opponents = new PokemonBattleSimulator("Venasaur", "Grass", 50, 500, 70, 80);
-        PokemonBattleSimulator yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
+        PokemonBattleSimulator opponents = new PokemonBattleSimulator("Venasaur", "Grass", 50, 300, 70, 80);
+        PokemonBattleSimulator yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 300, 80, 70);
 
-        int damageToOpponent = yourPokemon.calculateDamage();
         if(choice.equalsIgnoreCase("charizard")){
             yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
         }else if (choice.equalsIgnoreCase("venasaur")) {
@@ -84,6 +83,7 @@ public class PokemonBattleSimulatorRunner
             yourPokemon = new PokemonBattleSimulator("Dragonite", "Dragon", 50, 500, 80, 70);
             yourPokemon.battle();
         }
+        int damageToOpponent = yourPokemon.calculateDamage();
         yourPokemon.battle();
 
 

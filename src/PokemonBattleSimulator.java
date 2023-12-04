@@ -85,7 +85,7 @@ public class PokemonBattleSimulator
     public void battle()
     {
         Random random = new Random();
-        int opponentHealth = 100;
+        int opponentHealth = 300;
         int damageToOpponent;
         String comPoke = comPick();
 
