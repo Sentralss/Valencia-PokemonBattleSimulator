@@ -45,50 +45,46 @@ public class PokemonBattleSimulatorRunner
         PokemonBattleSimulator yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 300, 80, 70);
 
         if(choice.equalsIgnoreCase("charizard")){
-            yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Charizard", "Fire", 50, 300, 80, 70);
         }else if (choice.equalsIgnoreCase("venasaur")) {
-            yourPokemon = new PokemonBattleSimulator("Venasaur", "Grass", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Venasaur", "Grass", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("blastoise")) {
-            yourPokemon = new PokemonBattleSimulator("Blastoise", "Water", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Blastoise", "Water", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("pikachu")) {
-            yourPokemon = new PokemonBattleSimulator("Pikachu", "Electric", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Pikachu", "Electric", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("snorlax")) {
-            yourPokemon = new PokemonBattleSimulator("Snorlax", "Normal", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Snorlax", "Normal", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("lucario")) {
-            yourPokemon = new PokemonBattleSimulator("Lucario", "Fighting", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Lucario", "Fighting", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("scizor")) {
-            yourPokemon = new PokemonBattleSimulator("Scizor", "Bug", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Scizor", "Bug", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("nidoking")) {
-            yourPokemon = new PokemonBattleSimulator("Nidoking", "Poison", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Nidoking", "Poison", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("umbreon")) {
-            yourPokemon = new PokemonBattleSimulator("Umbreon", "Dark", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Umbreon", "Dark", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("gengar")) {
-            yourPokemon = new PokemonBattleSimulator("Gengar", "Ghost", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Gengar", "Ghost", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("Walrein")) {
-            yourPokemon = new PokemonBattleSimulator("Walrein", "Ice", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Walrein", "Ice", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("Metagross")) {
-            yourPokemon = new PokemonBattleSimulator("Metagross", "Steel", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Metagross", "Steel", 50, 300, 80, 70);
             yourPokemon.battle();
         } else if (choice.equalsIgnoreCase("Dragonite")) {
-            yourPokemon = new PokemonBattleSimulator("Dragonite", "Dragon", 50, 500, 80, 70);
+            yourPokemon = new PokemonBattleSimulator("Dragonite", "Dragon", 50, 300, 80, 70);
             yourPokemon.battle();
         }
         int damageToOpponent = yourPokemon.calculateDamage();
         yourPokemon.battle();
-
-
-
-
 
         System.out.println(Red +"◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓◓");
     }

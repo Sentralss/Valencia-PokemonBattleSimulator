@@ -52,23 +52,23 @@ public class PokemonBattleSimulator
     private double typeMultiplier(String opponentType)
     {
         if (this.type.equals("Fire") && (opponentType.equals("Grass") || opponentType.equals("Bug") || (opponentType.equals("Ice") || opponentType.equals("Steel")))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Water") && (opponentType.equals("Fire") || opponentType.equals("Rock"))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Grass") && (opponentType.equals("Water") || opponentType.equals("Electric"))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Normal")) {
-            return 1.0; // Normal damage
+            return 1.0;
         } else if (this.type.equals("Electric") && (opponentType.equals("Water"))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Fighting") && (opponentType.equals("Dark") || opponentType.equals("Steel")||(opponentType.equals("Normal") || opponentType.equals("Ice")))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Bug") && (opponentType.equals("Grass") || opponentType.equals("Dark"))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Poison") && (opponentType.equals("Grass"))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Dark") && (opponentType.equals("Ghost"))) {
-            return 2.0; // Double damage
+            return 2.0;
         } else if (this.type.equals("Ghost")) {
             return 1.0;
         } else if (this.type.equals("Ice") && (opponentType.equals("Dragon") || opponentType.equals("Grass"))) {
