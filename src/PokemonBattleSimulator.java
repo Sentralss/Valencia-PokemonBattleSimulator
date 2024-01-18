@@ -109,7 +109,7 @@ public class PokemonBattleSimulator
             if (opponentHealth <= 0) {
                 System.out.println("Opponent fainted. Your Pokemon wins!");
             } else {
-                int damageToYou = random.nextInt(10) + 1;
+                int damageToYou = random.nextInt(25) + 8;
                 health -= damageToYou;
 
                 System.out.println(Reset + "\nChoose a move to use against the opponents pokemon:");
